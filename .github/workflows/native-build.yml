@@ -37,5 +37,6 @@ jobs:
 
       - name: Publish Docker image Config
         run:
-          docker tag native-demo ${{ env.REGISTRY }}/${{ github.actor }}/native-demo:latest 
+          docker tag native-demo ${{ env.REGISTRY }}/${{ github.actor }}/native-demo:latest
+      - run:
           docker push ${{ env.REGISTRY }}/${{ github.actor }}/native-demo:latest
