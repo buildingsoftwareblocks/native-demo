@@ -35,8 +35,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Rename image
+        run: docker tag docker.io/library/native-demo:0.0.1-SNAPSHOT ${{ env.REGISTRY }}/${{ github.actor }}/native-demo:latest
       - name: Publish Docker image Config
-        run:
-          docker tag native-demo ${{ env.REGISTRY }}/${{ github.actor }}/native-demo:latest
-      - run:
-          docker push ${{ env.REGISTRY }}/${{ github.actor }}/native-demo:latest
+        run: docker push ${{ env.REGISTRY }}/${{ github.actor }}/native-demo:latest
