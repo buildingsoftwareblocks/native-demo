@@ -25,4 +25,15 @@ jobs:
           native-image-job-reports: "true"
 
       - name: Build with Maven
-        run: mvn -Pnative spring-boot:build-image -Ddocker.repo=${{ env.REGISTRY }}/${{ github.actor }}
+#        run: mvn -Pnative spring-boot:build-image -Ddocker.repo=${{ env.REGISTRY }}/${{ github.actor }}
+        run: mvn -Pnative spring-boot:build-image
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish Docker image Config
+        run: docker push ${{ env.REGISTRY }}/${{ github.actor }}/native-demo:latest
