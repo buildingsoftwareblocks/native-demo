@@ -98,9 +98,9 @@
                         <plugin>
                             <groupId>org.graalvm.buildtools</groupId>
                             <artifactId>native-maven-plugin</artifactId>
-<!--                            <configuration>-->
-<!--                                <imageName>${docker.repo}/${project.artifactId}</imageName>-->
-<!--                            </configuration>-->
+                            <configuration>
+                                <imageName>${project.artifactId}</imageName>
+                            </configuration>
                             <executions>
                                 <execution>
                                     <id>build-image</id>
