@@ -36,4 +36,6 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish Docker image Config
-        run: docker push ${{ env.REGISTRY }}/${{ github.actor }}/native-demo:latest
+        run:
+          docker tag native-demo ${{ env.REGISTRY }}/${{ github.actor }}/native-demo:latest 
+          docker push ${{ env.REGISTRY }}/${{ github.actor }}/native-demo:latest

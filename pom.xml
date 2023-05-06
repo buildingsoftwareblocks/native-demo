@@ -99,7 +99,7 @@
                             <groupId>org.graalvm.buildtools</groupId>
                             <artifactId>native-maven-plugin</artifactId>
                             <configuration>
-                                <imageName>${project.artifactId}</imageName>
+                                <imageName>${project.artifactId}:latest</imageName>
                             </configuration>
                             <executions>
                                 <execution>
